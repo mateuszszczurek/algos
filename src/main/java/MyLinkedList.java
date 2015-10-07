@@ -77,6 +77,40 @@ public class MyLinkedList<T> {
         return head.next == END_OF_LIST;
     }
 
+    public void anotherRecursiveReverse() {
+        head = anotherRecursiveReverse(head);
+    }
+
+    private Node<T> anotherRecursiveReverse(Node<T> node) {
+        if(node == null || node.next == null) {
+            return node;
+        }
+
+        Node<T> remaining = anotherRecursiveReverse(node.next);
+        node.next.next = node;
+        node.next = null;
+        return remaining;
+    }
+
+    public void recursiveReverse() {
+        recursiveReverse(null, head);
+    }
+
+    private void recursiveReverse(Node<T> previous, Node<T> current) {
+        if(current == END_OF_LIST) {
+            return;
+        }
+
+        if(current.next == null) {
+            head = current;
+        }
+
+        Node<T> next = current.next;
+        current.next = previous;
+
+        recursiveReverse(current, next);
+    }
+
     private class Node<T> {
 
         private T value;
