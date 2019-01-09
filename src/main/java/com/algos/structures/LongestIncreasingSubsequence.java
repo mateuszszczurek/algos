@@ -3,31 +3,36 @@ package com.algos.structures;
 import com.algos.GlobalMax;
 import com.google.common.base.Stopwatch;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.function.Consumer;
+import java.util.*;
 import java.util.function.Supplier;
 
-import static com.algos.RandomUtils.randoms;
+import static com.google.common.collect.Lists.newArrayList;
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
 
 public class LongestIncreasingSubsequence {
 
-    public static Consumer<Supplier<Integer>>  benchmark = (f) -> {
+    // TODO list with binary search
+
+    public static <T> void benchmark(Supplier<T> supplier) {
         Stopwatch started = Stopwatch.createStarted();
-        Integer result = f.get();
+        T result = supplier.get();
         started.stop();
-        System.out.println("Result: " + result);
+        if(result.getClass().isArray()) {
+            System.out.println(Arrays.toString((int[]) result));
+        } else {
+            System.out.println("Result: " + result);
+        }
+
         System.out.println("Elapsed: " + started.elapsed(MILLISECONDS));
-    };
+    }
 
     public static void main(String[] args) {
-        int[] randoms = randoms(50000);
+//        int[] randoms = randoms(50000);
+        int[] randoms = {1, 2, 3, 4, 5, 5, 5, 6, 7};
 
-        benchmark.accept(() -> backFillLis(randoms));
-        benchmark.accept(() -> reverseLisWrapper(randoms));
+        benchmark(() -> backFillLis(randoms));
+        benchmark(() -> reverseLisWrapper(randoms));
+        benchmark(() -> patienceLis(randoms));
 
     }
 
@@ -49,6 +54,34 @@ public class LongestIncreasingSubsequence {
 
         return globalMax.getMax();
 
+    }
+
+    public static int patienceLis(int[] numbers) {
+
+        List<Integer> piles = newArrayList();
+
+        for (int i = 0; i < numbers.length; i++) {
+            if (piles.isEmpty()) {
+                piles.add(numbers[i]);
+            }
+            int pileIndex = findPlace(numbers[i], piles);
+            if (pileIndex == -1) {
+                piles.add(numbers[i]);
+            } else {
+                piles.set(pileIndex, numbers[i]);
+            }
+        }
+
+        return piles.size();
+    }
+
+    private static int findPlace(int number, List<Integer> piles) {
+        for (int j = 0; j < piles.size(); j++) {
+            if (number <= piles.get(j)) {
+                return j;
+            }
+        }
+        return -1;
     }
 
     public static int lis(int[] numbers, int n, GlobalMax globalMax, Map<Integer, Integer> response) {

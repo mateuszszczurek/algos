@@ -1,6 +1,15 @@
-package com.algos;
+package com.algos.arrays;
 
 public class ArrayUtils {
+
+    public static void shiftRight(int[] array, int startRange, int endRange) {
+        if(endRange - startRange < 1) {
+            return;
+        }
+        for (int i = endRange - 1; i >= startRange; i--) {
+            array[i +1] = array[i];
+        }
+    }
 
     public static int[] reverse(int[] input) {
 
@@ -23,4 +32,3 @@ public class ArrayUtils {
     }
 
 }
-

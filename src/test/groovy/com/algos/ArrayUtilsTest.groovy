@@ -9,7 +9,7 @@ class ArrayUtilsTest extends Specification {
         def input = [1, 4, 6, 9 , 10, 12] as int[]
 
         when:
-        def result = ArrayUtils.reverse(input)
+        def result = com.algos.arrays.ArrayUtils.reverse(input)
 
         then:
         result == [12, 10, 9, 6, 4, 1] as int[]
@@ -20,7 +20,7 @@ class ArrayUtilsTest extends Specification {
         def input = [1, 4, 6, 9 , 10, 12, 13] as int[]
 
         when:
-        def result = ArrayUtils.reverse(input)
+        def result = com.algos.arrays.ArrayUtils.reverse(input)
 
         then:
         result == [13, 12, 10, 9, 6, 4, 1] as int[]
@@ -31,7 +31,7 @@ class ArrayUtilsTest extends Specification {
         def input = [1, 4, 6, 9 , 10, 12] as int[]
 
         when:
-        ArrayUtils.reverseInline(input)
+        com.algos.arrays.ArrayUtils.reverseInline(input)
 
         then:
         input == [12, 10, 9, 6, 4, 1] as int[]
@@ -42,7 +42,7 @@ class ArrayUtilsTest extends Specification {
         def input = [1, 4, 6, 9 , 10, 12, 13] as int[]
 
         when:
-        ArrayUtils.reverseInline(input)
+        com.algos.arrays.ArrayUtils.reverseInline(input)
 
         then:
         input == [13, 12, 10, 9, 6, 4, 1] as int[]

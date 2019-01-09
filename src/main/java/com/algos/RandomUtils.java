@@ -8,7 +8,7 @@ public class RandomUtils {
         Random random = new Random();
         int numbers[] = new int[count];
         for (int i = 0; i < count; i++) {
-            int number = random.nextInt();
+            int number = random.nextInt(20);
             numbers[i] = number;
         }
         return numbers;
