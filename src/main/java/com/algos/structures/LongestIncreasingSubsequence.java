@@ -11,13 +11,11 @@ import static java.util.concurrent.TimeUnit.MILLISECONDS;
 
 public class LongestIncreasingSubsequence {
 
-    // TODO list with binary search
-
     public static <T> void benchmark(Supplier<T> supplier) {
         Stopwatch started = Stopwatch.createStarted();
         T result = supplier.get();
         started.stop();
-        if(result.getClass().isArray()) {
+        if (result.getClass().isArray()) {
             System.out.println(Arrays.toString((int[]) result));
         } else {
             System.out.println("Result: " + result);
@@ -27,8 +25,8 @@ public class LongestIncreasingSubsequence {
     }
 
     public static void main(String[] args) {
-//        int[] randoms = randoms(50000);
-        int[] randoms = {1, 2, 3, 4, 5, 5, 5, 6, 7};
+        int[] randoms = {7, 10, 6, 15, 20, 24};
+//        int[] randoms = RandomUtils.randoms(50000);
 
         benchmark(() -> backFillLis(randoms));
         benchmark(() -> reverseLisWrapper(randoms));

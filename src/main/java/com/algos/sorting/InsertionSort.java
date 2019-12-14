@@ -1,14 +1,13 @@
 package com.algos.sorting;
 
-import com.algos.arrays.ArrayUtils;
-import com.algos.structures.LongestIncreasingSubsequence;
-
 import static com.algos.RandomUtils.randoms;
+import static com.algos.arrays.ArrayUtils.shiftRight;
+import static com.algos.structures.LongestIncreasingSubsequence.benchmark;
 
 public class InsertionSort {
 
     public static void main(String[] args) {
-        LongestIncreasingSubsequence.benchmark(() -> sort(randoms(10)));
+        benchmark(() -> sort(randoms(10)));
     }
 
     public static int[] sort(int[] array) {
@@ -24,11 +23,9 @@ public class InsertionSort {
         return array;
     }
 
-    // TODO write using while, and moving all greater elements by one to the right
-
     private static void insert(int[] array, int i, int j) {
         int temp = array[i];
-        ArrayUtils.shiftRight(array, j, i);
+        shiftRight(array, j, i);
         array[j] = temp;
     }
 

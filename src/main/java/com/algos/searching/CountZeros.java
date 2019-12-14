@@ -1,4 +1,4 @@
-package com.algos.random;
+package com.algos.searching;
 
 public class CountZeros {
 
