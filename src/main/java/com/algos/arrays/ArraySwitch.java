@@ -4,7 +4,7 @@ import static com.google.common.collect.Lists.newArrayList;
 import static java.util.Arrays.stream;
 import static java.util.stream.Collectors.joining;
 
-public class ArrayRotation {
+public class ArraySwitch {
 
     public static void main(String[] args) {
         int rotationPoint = 3;
