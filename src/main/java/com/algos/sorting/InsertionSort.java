@@ -2,7 +2,7 @@ package com.algos.sorting;
 
 import static com.algos.RandomUtils.randoms;
 import static com.algos.arrays.ArrayUtils.shiftRight;
-import static com.algos.structures.LongestIncreasingSubsequence.benchmark;
+import static com.algos.arrays.LongestIncreasingSubsequence.benchmark;
 
 public class InsertionSort {
 

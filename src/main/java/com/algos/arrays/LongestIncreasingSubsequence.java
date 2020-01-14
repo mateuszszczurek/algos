@@ -1,4 +1,4 @@
-package com.algos.structures;
+package com.algos.arrays;
 
 import com.algos.GlobalMax;
 import com.google.common.base.Stopwatch;
@@ -59,9 +59,6 @@ public class LongestIncreasingSubsequence {
         List<Integer> piles = newArrayList();
 
         for (int i = 0; i < numbers.length; i++) {
-            if (piles.isEmpty()) {
-                piles.add(numbers[i]);
-            }
             int pileIndex = findPlace(numbers[i], piles);
             if (pileIndex == -1) {
                 piles.add(numbers[i]);

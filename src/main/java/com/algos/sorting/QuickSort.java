@@ -1,6 +1,6 @@
 package com.algos.sorting;
 
-import static com.algos.structures.LongestIncreasingSubsequence.benchmark;
+import static com.algos.arrays.LongestIncreasingSubsequence.benchmark;
 
 public class QuickSort {
 
