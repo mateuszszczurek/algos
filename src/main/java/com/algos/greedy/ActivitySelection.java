@@ -16,7 +16,7 @@ import static java.util.Comparator.comparingInt;
 //https://practice.geeksforgeeks.org/problems/activity-selection/0
 //https://www.studytonight.com/data-structures/activity-selection-problem
 //https://en.wikipedia.org/wiki/Activity_selection_problem
-public class ActivitySection {
+public class ActivitySelection {
 
     public static void main(String[] args) {
         // 1 3 2 5 8 5
