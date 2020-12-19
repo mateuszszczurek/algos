@@ -16,6 +16,16 @@ dependencies {
     testCompile 'org.codehaus.groovy:groovy-all:2.4.4'
     testCompile 'org.spockframework:spock-maven:0.7-groovy-2.0'
     testCompile group: 'org.assertj', name: 'assertj-core', version: '3.11.1'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
+    testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.5.2'
+    testRuntimeOnly group: 'org.junit.vintage', name: 'junit-vintage-engine', version: '5.5.2'
+
+
+}
+
+test {
+    useJUnitPlatform()
 }
 
 group 'com.learning'
